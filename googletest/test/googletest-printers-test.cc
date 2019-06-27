@@ -1541,6 +1541,11 @@ TEST(PrintOptionalTest, Basic) {
   EXPECT_EQ("(\"A\")", PrintToString(absl::optional<std::string>{"A"}));
 }
 
+TEST(PrintMonostateTest, Basic) {
+  absl::monostate value;
+  EXPECT_EQ("{}", PrintToString(value));
+}
+
 struct NonPrintable {
   unsigned char contents = 17;
 };
