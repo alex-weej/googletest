@@ -721,6 +721,16 @@ class UniversalPrinter<::absl::variant<T...>> {
     ::std::ostream* os;
   };
 };
+  
+// Printer for absl::monostate
+
+template <typename T>
+class UniversalPrinter<::absl::monostate> {
+ public:
+  static void Print(const ::absl::monostate& value, ::std::ostream* os) {
+    *os << "{}";
+  }
+};
 
 #endif  // GTEST_HAS_ABSL
 
